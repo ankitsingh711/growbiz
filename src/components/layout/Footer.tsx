@@ -34,7 +34,7 @@ export function Footer() {
                 <div>
                     <h3 className="font-heading font-bold text-lg mb-4 text-brand-yellow">Contact</h3>
                     <ul className="space-y-3 text-sm text-gray-400">
-                        <li>{siteConfig.contact.address}</li>
+                        <li>{siteConfig.contact.location}</li>
                         <li>
                             <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-brand-yellow">
                                 {siteConfig.contact.phone}
