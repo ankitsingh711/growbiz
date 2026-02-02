@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
 
 export function Hero() {
@@ -20,7 +21,7 @@ export function Hero() {
                     className="space-y-6"
                 >
                     <div className="inline-block px-3 py-1 rounded-full bg-brand-yellow/20 text-brand-black text-sm font-bold tracking-wide mb-2">
-                        AWARD WINNING SEO AGENCY LONDON
+                        AWARD WINNING SEO AGENCY
                     </div>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight text-brand-black">
                         Grow Your Business With <span className="text-brand-yellow">GrowBiz</span>
@@ -30,12 +31,16 @@ export function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                        <Button size="lg" className="text-base h-12 px-8">
-                            Book A Call
-                        </Button>
-                        <Button variant="outline" size="lg" className="text-base h-12 px-8">
-                            View Case Studies
-                        </Button>
+                        <Link href="/contact">
+                            <Button size="lg" className="text-base h-12 px-8">
+                                Book A Call
+                            </Button>
+                        </Link>
+                        <Link href="/case-studies">
+                            <Button variant="outline" size="lg" className="text-base h-12 px-8">
+                                View Case Studies
+                            </Button>
+                        </Link>
                     </div>
 
                     <div className="pt-8 flex items-center gap-4 text-sm font-medium text-gray-500">
@@ -55,12 +60,16 @@ export function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="relative lg:h-[600px] w-full flex items-center justify-center"
                 >
-                    {/* Placeholder for Hero Image - simulating the vibrant style */}
-                    <div className="relative w-full aspect-square md:aspect-auto md:h-full rounded-3xl overflow-hidden bg-gray-100 shadow-2xl">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-brand-yellow/20 to-transparent mix-blend-overlay z-10" />
-                        <div className="w-full h-full flex items-center justify-center bg-slate-50 text-gray-400">
-                            [Hero Image Placeholder - Suggest replacing with vibrant team photo or 3D abstract]
-                        </div>
+                    {/* Office Image */}
+                    <div className="relative w-full aspect-square md:aspect-auto md:h-full rounded-3xl overflow-hidden shadow-2xl">
+                        <Image
+                            src="/office-hero.jpg"
+                            alt="GrowBiz Marketing Agency Office"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-brand-yellow/10 to-transparent mix-blend-overlay z-10" />
                     </div>
 
                     {/* Floating Cards simulating success metrics */}

@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
@@ -39,16 +40,14 @@ export function Header() {
         >
             <div className="container flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 z-50 relative">
-                    <div className="bg-brand-yellow w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-heading">
-                        <Image
-                            src="/logo.png"
-                            alt="Logo"
-                            width={24}
-                            height={24}
-                            className="w-6 h-6"
-                        />
-                    </div>
+                <Link href="/" className="flex items-center gap-3 z-50 relative">
+                    <Image
+                        src="/logo.png"
+                        alt="GrowBiz Logo"
+                        width={40}
+                        height={40}
+                        className="w-10 h-10"
+                    />
                     <span className={cn("font-heading font-bold text-xl tracking-tight", isScrolled ? "text-brand-black" : "text-brand-black")}>
                         GrowBiz
                     </span>

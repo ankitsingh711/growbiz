@@ -7,12 +7,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Linkedin, Twitter, Mail } from "lucide-react"
 import { CTA } from "@/components/sections/CTA"
-import { Metadata } from "next"
 
-export const metadata: Metadata = {
-    title: "Meet Our Team | Pearl Lemon Experts",
-    description: "Get to know the talented team behind Pearl Lemon's success. Award-winning SEO experts, content creators, and digital marketers.",
-}
 
 export default function MeetOurTeamPage() {
     return (

@@ -8,12 +8,7 @@ import { CTA } from "@/components/sections/CTA"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Award, Target, Users, Zap } from "lucide-react"
-import { Metadata } from "next"
 
-export const metadata: Metadata = {
-    title: "About Pearl Lemon | Award-Winning SEO Agency",
-    description: "Learn about Pearl Lemon's journey, mission, and the team behind our success. Award-winning digital marketing agency serving clients globally.",
-}
 
 export default function AboutPage() {
     const companyStats = [

@@ -9,12 +9,7 @@ import Link from "next/link"
 import { ArrowRight, Calendar } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CTA } from "@/components/sections/CTA"
-import { Metadata } from "next"
 
-export const metadata: Metadata = {
-    title: "Case Studies | Pearl Lemon Success Stories",
-    description: "See how we've helped businesses double their traffic, generate leads, and dominate their markets.",
-}
 
 export default function CaseStudiesPage() {
     const categories = ["All", "SEO", "Video", "Written", "Lead Gen"]

@@ -9,12 +9,7 @@ import { Stats } from "@/components/sections/Stats"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, CheckCircle } from "lucide-react"
-import { Metadata } from "next"
 
-export const metadata: Metadata = {
-    title: "Digital Marketing Services | Pearl Lemon",
-    description: "Comprehensive digital marketing services including SEO, PPC, content marketing, lead generation, web design, and video marketing.",
-}
 
 export default function ServicesPage() {
     const companyStats = [
