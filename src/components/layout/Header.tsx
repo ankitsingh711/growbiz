@@ -34,19 +34,19 @@ export function Header() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 isScrolled
-                    ? "bg-white/80 backdrop-blur-md shadow-sm py-3"
-                    : "bg-transparent py-5"
+                    ? "bg-white/95 backdrop-blur-md shadow-md py-3"
+                    : "bg-white/90 backdrop-blur-sm shadow-sm py-4"
             )}
         >
             <div className="container flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-3 z-50 relative">
+                <Link href="/" className="flex items-center gap-3 z-50 relative ml-8">
                     <Image
                         src="/logo.png"
                         alt="GrowBiz Logo"
                         width={40}
                         height={40}
-                        className="w-10 h-10"
+                        className="w-10 h-10 rounded-[50%]"
                     />
                     <span className={cn("font-heading font-bold text-xl tracking-tight", isScrolled ? "text-brand-black" : "text-brand-black")}>
                         GrowBiz
@@ -67,7 +67,13 @@ export function Header() {
                             {item.title}
                         </Link>
                     ))}
-                    <Button>Book a Call</Button>
+                    <a
+                        href="https://wa.me/917003104443?text=Hi, I'd like to book a call with GrowBiz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Button>Book a Call</Button>
+                    </a>
                 </nav>
 
                 {/* Mobile Toggle */}
@@ -103,9 +109,15 @@ export function Header() {
                                         {item.title}
                                     </Link>
                                 ))}
-                                <Button size="lg" className="mt-4">
-                                    Book a Call
-                                </Button>
+                                <a
+                                    href="https://wa.me/917003104443?text=Hi, I'd like to book a call with GrowBiz"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Button size="lg" className="mt-4">
+                                        Book a Call
+                                    </Button>
+                                </a>
                             </nav>
                         </motion.div>
                     )}

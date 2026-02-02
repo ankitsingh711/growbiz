@@ -1,9 +1,50 @@
+"use client"
+
+import { useState } from "react"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { Button } from "@/components/ui/button"
-import { Calendar, Mail, MapPin, Phone } from "lucide-react"
+import { Mail, MapPin, Phone, Globe } from "lucide-react"
 
 export default function ContactPage() {
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: ""
+    })
+    const [loading, setLoading] = useState(false)
+    const [status, setStatus] = useState<{ type: "success" | "error", message: string } | null>(null)
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setLoading(true)
+        setStatus(null)
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            })
+
+            const data = await response.json()
+
+            if (response.ok) {
+                setStatus({ type: "success", message: "Message sent successfully! We'll get back to you soon." })
+                setFormData({ firstName: "", lastName: "", email: "", message: "" })
+            } else {
+                setStatus({ type: "error", message: data.error || "Failed to send message" })
+            }
+        } catch (error) {
+            setStatus({ type: "error", message: "An error occurred. Please try again later." })
+        } finally {
+            setLoading(false)
+        }
+    }
+
     return (
         <main className="min-h-screen bg-white">
             <Header />
@@ -30,7 +71,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <p className="font-bold">Email Us</p>
-                                    <a href="mailto:info@pearllemon.com" className="text-gray-500 hover:text-brand-yellow transition-colors">info@pearllemon.com</a>
+                                    <a href="mailto:business@thegrowbiz.in" className="text-gray-500 hover:text-brand-yellow transition-colors">business@thegrowbiz.in</a>
                                 </div>
                             </div>
 
@@ -40,7 +81,17 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <p className="font-bold">Call Us</p>
-                                    <a href="tel:+442071833436" className="text-gray-500 hover:text-brand-yellow transition-colors">+44 207 183 3436</a>
+                                    <a href="tel:+917003104443" className="text-gray-500 hover:text-brand-yellow transition-colors">+91 7003104443</a>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 bg-brand-yellow/10 rounded-full text-brand-black">
+                                    <Globe size={24} />
+                                </div>
+                                <div>
+                                    <p className="font-bold">Visit Us Online</p>
+                                    <a href="https://www.thegrowbiz.in" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-brand-yellow transition-colors">www.thegrowbiz.in</a>
                                 </div>
                             </div>
 
@@ -49,8 +100,8 @@ export default function ContactPage() {
                                     <MapPin size={24} />
                                 </div>
                                 <div>
-                                    <p className="font-bold">Visit Us</p>
-                                    <p className="text-gray-500">Kemp House, 152-160 City Road<br />London EC1V 2NX</p>
+                                    <p className="font-bold">Location</p>
+                                    <p className="text-gray-500">India<br />(Serving clients worldwide)</p>
                                 </div>
                             </div>
                         </div>
@@ -60,38 +111,86 @@ export default function ContactPage() {
                                 <h3 className="text-xl font-bold">Book a Consultation</h3>
                                 <p className="text-gray-400 text-sm mt-1">Free 30-min strategy call</p>
                             </div>
-                            <Button variant="default" className="shrink-0 bg-brand-yellow text-brand-black hover:bg-white hover:text-brand-black">
-                                Book Now
-                            </Button>
+                            <a
+                                href="https://wa.me/917003104443?text=Hi, I'd like to book a call with GrowBiz"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button variant="default" className="shrink-0 bg-brand-yellow text-brand-black hover:bg-white hover:text-brand-black">
+                                    Book Now
+                                </Button>
+                            </a>
                         </div>
                     </div>
 
-                    {/* Form (Mock) */}
+                    {/* Form */}
                     <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm">
-                        <form className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium">First Name</label>
-                                    <input type="text" className="w-full h-12 rounded-lg border border-gray-200 px-4 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50" placeholder="John" />
+                                    <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        value={formData.firstName}
+                                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                                        className="w-full h-12 rounded-lg border border-gray-200 px-4 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50"
+                                        placeholder="John"
+                                        required
+                                    />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium">Last Name</label>
-                                    <input type="text" className="w-full h-12 rounded-lg border border-gray-200 px-4 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50" placeholder="Doe" />
+                                    <label htmlFor="lastName" className="text-sm font-medium">Last Name</label>
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        value={formData.lastName}
+                                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                                        className="w-full h-12 rounded-lg border border-gray-200 px-4 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50"
+                                        placeholder="Doe"
+                                        required
+                                    />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium">Email</label>
-                                <input type="email" className="w-full h-12 rounded-lg border border-gray-200 px-4 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50" placeholder="john@company.com" />
+                                <label htmlFor="email" className="text-sm font-medium">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={formData.email}
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    className="w-full h-12 rounded-lg border border-gray-200 px-4 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50"
+                                    placeholder="john@company.com"
+                                    required
+                                />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium">Message</label>
-                                <textarea className="w-full h-32 rounded-lg border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50 resize-none" placeholder="Tell us about your project..." />
+                                <label htmlFor="message" className="text-sm font-medium">Message</label>
+                                <textarea
+                                    id="message"
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                    className="w-full h-32 rounded-lg border border-gray-200 p-4 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50 resize-none"
+                                    placeholder="Tell us about your project..."
+                                    required
+                                />
                             </div>
 
-                            <Button size="lg" className="w-full h-14 text-base">
-                                Send Message
+                            {status && (
+                                <div className={`p-4 rounded-lg ${status.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
+                                    {status.message}
+                                </div>
+                            )}
+
+                            <Button
+                                type="submit"
+                                size="lg"
+                                className="w-full h-14 text-base"
+                                disabled={loading}
+                            >
+                                {loading ? "Sending..." : "Send Message"}
                             </Button>
                         </form>
                     </div>

@@ -31,11 +31,15 @@ export function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                        <Link href="/contact">
+                        <a
+                            href="https://wa.me/917003104443?text=Hi, I'd like to book a call with GrowBiz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <Button size="lg" className="text-base h-12 px-8">
                                 Book A Call
                             </Button>
-                        </Link>
+                        </a>
                         <Link href="/case-studies">
                             <Button variant="outline" size="lg" className="text-base h-12 px-8">
                                 View Case Studies
@@ -45,9 +49,26 @@ export function Hero() {
 
                     <div className="pt-8 flex items-center gap-4 text-sm font-medium text-gray-500">
                         <div className="flex -space-x-2">
-                            {[1, 2, 3, 4].map((i) => (
-                                <div key={i} className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white" />
-                            ))}
+                            <img
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces"
+                                alt="Client"
+                                className="w-10 h-10 rounded-full border-2 border-white object-cover"
+                            />
+                            <img
+                                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=faces"
+                                alt="Client"
+                                className="w-10 h-10 rounded-full border-2 border-white object-cover"
+                            />
+                            <img
+                                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces"
+                                alt="Client"
+                                className="w-10 h-10 rounded-full border-2 border-white object-cover"
+                            />
+                            <img
+                                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces"
+                                alt="Client"
+                                className="w-10 h-10 rounded-full border-2 border-white object-cover"
+                            />
                         </div>
                         <p>Trusted by 500+ Clients Worldwide</p>
                     </div>

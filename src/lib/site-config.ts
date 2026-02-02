@@ -15,8 +15,9 @@ export const siteConfig = {
         facebook: "https://facebook.com/pearllemon",
     },
     contact: {
-        email: "info@pearllemon.com",
-        phone: "+44 207 183 3436",
-        address: "Kemp House, 152-160 City Road, London EC1V 2NX",
+        email: "business@thegrowbiz.in",
+        phone: "+91 7003104443",
+        website: "www.thegrowbiz.in",
+        location: "India (Serving clients worldwide)",
     },
 }
