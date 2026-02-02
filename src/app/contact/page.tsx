@@ -13,36 +13,24 @@ export default function ContactPage() {
         email: "",
         message: ""
     })
-    const [loading, setLoading] = useState(false)
-    const [status, setStatus] = useState<{ type: "success" | "error", message: string } | null>(null)
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        setLoading(true)
-        setStatus(null)
 
-        try {
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            })
+        // Format the WhatsApp message
+        const whatsappMessage = `Hi, I'm ${formData.firstName} ${formData.lastName}
 
-            const data = await response.json()
+Email: ${formData.email}
 
-            if (response.ok) {
-                setStatus({ type: "success", message: "Message sent successfully! We'll get back to you soon." })
-                setFormData({ firstName: "", lastName: "", email: "", message: "" })
-            } else {
-                setStatus({ type: "error", message: data.error || "Failed to send message" })
-            }
-        } catch (error) {
-            setStatus({ type: "error", message: "An error occurred. Please try again later." })
-        } finally {
-            setLoading(false)
-        }
+Message:
+${formData.message}`
+
+        // Open WhatsApp with pre-filled message
+        const whatsappUrl = `https://wa.me/917003104443?text=${encodeURIComponent(whatsappMessage)}`
+        window.open(whatsappUrl, '_blank')
+
+        // Clear form after opening WhatsApp
+        setFormData({ firstName: "", lastName: "", email: "", message: "" })
     }
 
     return (
@@ -178,19 +166,12 @@ export default function ContactPage() {
                                 />
                             </div>
 
-                            {status && (
-                                <div className={`p-4 rounded-lg ${status.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
-                                    {status.message}
-                                </div>
-                            )}
-
                             <Button
                                 type="submit"
                                 size="lg"
                                 className="w-full h-14 text-base"
-                                disabled={loading}
                             >
-                                {loading ? "Sending..." : "Send Message"}
+                                Send Message
                             </Button>
                         </form>
                     </div>
