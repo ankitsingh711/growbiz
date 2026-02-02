@@ -9,7 +9,7 @@ export function Footer() {
                 {/* Column 1: Brand */}
                 <div className="space-y-4">
                     <Link href="/" className="font-heading font-bold text-2xl text-white">
-                        Pearl Lemon
+                        GrowBiz
                     </Link>
                     <p className="text-gray-400 text-sm leading-relaxed">
                         {siteConfig.description}. We help businesses grow through data-driven SEO strategies and creative digital marketing.
@@ -66,7 +66,7 @@ export function Footer() {
             </div>
 
             <div className="container mt-12 pt-8 border-t border-white/10 text-center text-sm text-gray-500">
-                <p>&copy; {new Date().getFullYear()} Pearl Lemon Group. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} GrowBiz Group. All rights reserved.</p>
             </div>
         </footer>
     )

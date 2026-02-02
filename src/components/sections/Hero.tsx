@@ -23,7 +23,7 @@ export function Hero() {
                         AWARD WINNING SEO AGENCY LONDON
                     </div>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight text-brand-black">
-                        Grow Your Business With <span className="text-brand-yellow">Pearl Lemon</span>
+                        Grow Your Business With <span className="text-brand-yellow">GrowBiz</span>
                     </h1>
                     <p className="text-lg md:text-xl text-gray-600 max-w-lg leading-relaxed">
                         We are a globally remote team of SEO experts, content creators, and digital strategists dedicated to doubling your traffic.

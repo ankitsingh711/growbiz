@@ -1,11 +1,12 @@
 export const siteConfig = {
-    name: "Pearl Lemon",
+    name: "GrowBiz",
     description: "Award Winning SEO Agency London",
     nav: [
         { title: "Home", href: "/" },
+        { title: "Services", href: "/services" },
         { title: "Case Studies", href: "/case-studies" },
         { title: "Meet Our Team", href: "/meet-our-team" },
-        { title: "Services", href: "/services" },
+        { title: "About", href: "/about" },
         { title: "Contact", href: "/contact" },
     ],
     socials: {

@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-brand-yellow: #FFD700;
+    --color-brand-black: #0A0A0A;
+}
 
 @layer base {
     :root {
@@ -14,5 +17,6 @@ html {
 }
 
 body {
-    @apply bg-white text-brand-black;
+    background-color: white;
+    color: var(--color-brand-black);
 }

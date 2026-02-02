@@ -5,7 +5,7 @@ export const teamMembers: TeamMember[] = [
         slug: "deepak-shukla",
         name: "Deepak Shukla",
         role: "Founder & CEO",
-        bio: "Deepak is an award-winning SEO expert and the founder of Pearl Lemon. He has been featured in SEMrush, Woorank, Digital Olympus, and more. A TEDx speaker and marathon runner, Deepak brings energy and discipline to every project.",
+        bio: "Deepak is an award-winning SEO expert and the founder of GrowBiz. He has been featured in SEMrush, Woorank, Digital Olympus, and more. A TEDx speaker and marathon runner, Deepak brings energy and discipline to every project.",
         image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
         socials: {
             linkedin: "https://linkedin.com/in/deepakshukla",

@@ -41,10 +41,16 @@ export function Header() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 z-50 relative">
                     <div className="bg-brand-yellow w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-heading">
-                        PL
+                        <Image
+                            src="/logo.png"
+                            alt="Logo"
+                            width={24}
+                            height={24}
+                            className="w-6 h-6"
+                        />
                     </div>
                     <span className={cn("font-heading font-bold text-xl tracking-tight", isScrolled ? "text-brand-black" : "text-brand-black")}>
-                        Pearl Lemon
+                        GrowBiz
                     </span>
                 </Link>
 

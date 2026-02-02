@@ -93,7 +93,7 @@ export default function CaseStudyDetail({ params }: Props) {
 
                         <h2>Our Strategy</h2>
                         <p>
-                            Pearl Lemon implemented a comprehensive {study.category} strategy tailored to their specific goals.
+                            GrowBiz implemented a comprehensive {study.category} strategy tailored to their specific goals.
                         </p>
                         <ul>
                             <li>Comprehensive Technical Audit</li>
@@ -107,7 +107,7 @@ export default function CaseStudyDetail({ params }: Props) {
                             Within 6 months, we achieved significant milestones. The data speaks for itself—consistent growth month-over-month and a substantial ROI.
                         </p>
                         <blockquote>
-                            "Pearl Lemon didn't just promise results; they delivered them. Their team became an extension of ours."
+                            "GrowBiz didn't just promise results; they delivered them. Their team became an extension of ours."
                         </blockquote>
                     </div>
                 </div>

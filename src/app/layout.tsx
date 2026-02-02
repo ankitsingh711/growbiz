@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-    title: "Pearl Lemon Clone - Award Winning SEO Agency London",
-    description: "Pearl Lemon is an award-winning SEO Agency in London. We maintain over 300+ 5-star reviews and guarantee results.",
+    title: "GrowBiz Clone - Award Winning SEO Agency London",
+    description: "GrowBiz is an award-winning SEO Agency in London. We maintain over 300+ 5-star reviews and guarantee results.",
 };
 
 export default function RootLayout({
